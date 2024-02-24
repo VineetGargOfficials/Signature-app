@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.attributesPanel {
+    width: 70%;
+    height: 120px;
+    display: flex;
+}
+
+.attrPanel {
+    height: 100px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.attributesPanel p{
+    font-weight: 700;
+    color: rgb(65, 65, 65);
+}
+#text-color-picker {
+    width: 200px;
+    margin-top: 5px;
+    padding: 1px;
+}
+#bg-color-picker {
+    width: 200px;
+    margin-top: 5px;
+    padding: 1px;
+}
+/* #font-size-selector {
+    width: 200px;
+    margin-top: 5px;
+    padding: 1px;
+} */
+.font-size {
+    margin-top: 5px;
+}
+#font-size-decrease,
+#font-size-increase {
+    background-color: #f0f0f0;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.signaturePanel {
+    width: 70%;
+    height: 400px;
+    border: 2px solid black;
+}
+
+.buttonPanel {
+    margin-top: 20px;
+    width: 70%;
+    height: 40px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.button {
+    width: 300px;
+    font-weight: 700;
+    font-size: 17px;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.btn-clear {
+    background-color: red;
+}
+.btn-save {
+    background-color: green ;
+}
+

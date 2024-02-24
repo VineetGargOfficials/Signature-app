@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="attributesPanel">
+            <div class="Box1 attrPanel">
+                <p>Text color picker</p>
+                <div class="text-color-picker">
+                    <input type="color" id="text-color-picker" >
+                </div>
+            </div>
+            <div class="Box2 attrPanel">
+                <p>Background</p>
+                <div class="back-color-picker">
+                    <input type="color" id="bg-color-picker">
+                </div>
+            </div>
+            <div class="Box3 attrPanel">
+                <p>Font Size</p>
+                <div class="font-size">
+                    <button id="font-size-decrease">-</button>
+                    <span id="font-size-value">16</span>px
+                    <button id="font-size-increase">+</button>
+                </div>
+            </div>
+        </div>
+        <div class="signaturePanel"></div>
+        <div class="buttonPanel">
+            <button class="btn-clear button">Clear</button>
+            <button class="btn-save button">Save & Download</button>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+</html>
