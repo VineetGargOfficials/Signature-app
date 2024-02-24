@@ -1,89 +1,89 @@
 body {
     font-family: Arial, sans-serif;
     text-align: center;
-  }
-  
-  .container {
+}
+
+.container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-  }
-  
-  .attributesPanel {
+}
+
+.attributesPanel {
     width: 70%;
     height: 120px;
     display: flex;
-  }
-  
-  .attrPanel {
+}
+
+.attrPanel {
     height: 100px;
     flex: 1;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  }
-  
-  .attributesPanel p {
+}
+
+.attributesPanel p {
     font-weight: 700;
     color: rgb(65, 65, 65);
-  }
-  
-  #text-color-picker {
+}
+
+#text-color-picker {
     width: 200px;
     margin-top: 5px;
     padding: 1px;
     cursor: pointer;
-  }
-  
-  #bg-color-picker {
+}
+
+#bg-color-picker {
     width: 200px;
     margin-top: 5px;
     padding: 1px;
     cursor: pointer;
-  }
-  
-  .font-size {
+}
+
+.font-size {
     margin-top: 5px;
     display: flex;
     flex-direction: row;
-  }
-  
-  #font-size-decrease,
-  #font-size-increase {
+}
+
+#font-size-decrease,
+#font-size-increase {
     background-color: #f0f0f0;
     border: none;
     padding: 5px 10px;
     cursor: pointer;
-  }
-  
-  canvas {
+}
+
+canvas {
     border: 1px solid #000;
-  }
-  
-  .buttonsPanel {
+}
+
+.buttonsPanel {
     margin-top: 20px;
     width: 70%;
     height: 40px;
     display: flex;
     justify-content: space-evenly;
-  }
-  
-  #clearButton,
-  #saveButton {
+}
+
+#clearButton,
+#saveButton {
     width: 300px;
     font-weight: 700;
     font-size: 17px;
     border: none;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
     cursor: pointer;
-  }
-  
-  #clearButton {
+}
+
+#clearButton {
     background-color: red;
-  }
-  
-  #saveButton {
+}
+
+#saveButton {
     background-color: green;
-  }
+}
