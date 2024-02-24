@@ -16,7 +16,7 @@ This Signature App allows users to draw and save their signatures with customiza
 1. Clone the repository to your local machine:
 
    ```
-   git clone https://github.com/your-username/signature-app.git
+   git clone https://github.com/VineetGargOfficials/Signature-app.git
    ```
 
 2. Open `index.html` in your web browser.
