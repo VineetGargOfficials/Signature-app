@@ -1,62 +1,80 @@
-/**
- * Text Color Picker
- */
-// Get the color picker input element
-const textColorPicker = document.getElementById('text-color-picker');
-
-// Add event listener for change event
-textColorPicker.addEventListener('input', function() {
-    // Get the selected color value
-    const selectedTextColor = this.value;
-
-});
-
-
-/**
- * Background Color Picker
- */
-// Get the color picker input element
-const bgColorPicker = document.getElementById('bg-color-picker');
-
-// Add event listener for change event
-bgColorPicker.addEventListener('input', function() {
-    // Get the selected color value
-    const selectedBgColor = this.value;
-
-    // Apply the selected color to the text
-    const signatureBox = document.querySelector('.signaturePanel');
-    signatureBox.style.backgroundColor = selectedBgColor;
-});
-
-
-
-// Get the font size value element and buttons
-const fontSizeValue = document.getElementById('font-size-value');
-const fontSizeDecreaseBtn = document.getElementById('font-size-decrease');
-const fontSizeIncreaseBtn = document.getElementById('font-size-increase');
-
-// Function to decrease font size
-fontSizeDecreaseBtn.addEventListener('click', function() {
-    let fontSize = parseInt(fontSizeValue.textContent);
-    if (fontSize > 8) { // Limiting minimum font size
-        fontSize -= 2; // Decrease font size by 2px
-        fontSizeValue.textContent = fontSize;
-        applyFontSize(fontSize);
+document.addEventListener('DOMContentLoaded', function () {
+    const canvas = document.getElementById('signatureCanvas');
+    const context = canvas.getContext('2d');
+    let isDrawing = false;
+    let currentTextColor = '#000000'; // Default text color
+    let currentBgColor = '#FFFFFF'; // Default background color
+    let currentFontSize = 8; // Default font size
+  
+    canvas.addEventListener('mousedown', startDrawing);
+    canvas.addEventListener('mousemove', draw);
+    canvas.addEventListener('mouseup', stopDrawing);
+    canvas.addEventListener('mouseout', stopDrawing);
+  
+    document.getElementById('clearButton').addEventListener('click', clearCanvas);
+    document.getElementById('saveButton').addEventListener('click', saveSignature);
+    document.getElementById('text-color-picker').addEventListener('input', changeTextColor);
+    document.getElementById('bg-color-picker').addEventListener('input', changeBgColor);
+    document.getElementById('font-size-decrease').addEventListener('click', decreaseFontSize);
+    document.getElementById('font-size-increase').addEventListener('click', increaseFontSize);
+  
+    function startDrawing(event) {
+        isDrawing = true;
+        draw(event);
     }
-});
-
-// Function to increase font size
-fontSizeIncreaseBtn.addEventListener('click', function() {
-    let fontSize = parseInt(fontSizeValue.textContent);
-    if (fontSize < 72) { // Limiting maximum font size
-        fontSize += 2; // Increase font size by 2px
-        fontSizeValue.textContent = fontSize;
-        applyFontSize(fontSize);
+  
+    function draw({ offsetX, offsetY }) {
+        if (!isDrawing) return;
+  
+        context.lineWidth = currentFontSize; // Use font size as line width
+        context.lineCap = 'round';
+        context.strokeStyle = currentTextColor;
+  
+        context.lineTo(offsetX, offsetY);
+        context.stroke();
+        context.beginPath();
+        context.moveTo(offsetX, offsetY);
     }
-});
-
-// Function to apply font size to the text
-function applyFontSize(fontSize) {
-    const colorPickerText = document.querySelector('.color-picker');
-    colorPickerText.style.fontSize = fontSize + 'px';
-}
+  
+    function stopDrawing() {
+        isDrawing = false;
+        context.beginPath();
+    }
+  
+    function clearCanvas() {
+        context.fillStyle = currentBgColor; // Set background color
+        context.fillRect(0, 0, canvas.width, canvas.height); // Fill canvas with background color
+    }
+  
+    function saveSignature() {
+        const image = canvas.toDataURL('image/png');
+        const link = document.createElement('a');
+        link.href = image;
+        link.download = 'signature.png';
+        link.click();
+    }
+  
+    function changeTextColor(event) {
+        currentTextColor = event.target.value;
+    }
+  
+    function changeBgColor(event) {
+        currentBgColor = event.target.value;
+        clearCanvas();
+    }
+  
+    function decreaseFontSize() {
+        if (currentFontSize > 6) {
+            currentFontSize -= 2;
+            document.getElementById('font-size-value').textContent = currentFontSize;
+        }
+    }
+  
+    function increaseFontSize() {
+        if (currentFontSize < 100) {
+            currentFontSize += 2;
+            document.getElementById('font-size-value').textContent = currentFontSize;
+        }
+    }
+  });
+  
